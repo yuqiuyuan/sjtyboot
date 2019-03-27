@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class SjtyPropritiesController {
 
 
+
     @ResponseBody
     @RequestMapping("lp")
     public String getLocalProperty() {
