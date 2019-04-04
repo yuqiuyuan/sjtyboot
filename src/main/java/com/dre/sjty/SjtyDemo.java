@@ -5,19 +5,20 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 
 public class SjtyDemo {
     String regEx1 = "delegate.Online_a";//所有的你的程序打印的日志
 
     public static void main(String[] args) throws IOException {
-        String id = "5c481fdcd50b2";
-        SjtyDemo demo = new SjtyDemo();
-        demo.getIds("/Users/yuqiuyuan/Downloads/log.txt");
-
+//        String id = "5c481fdcd50b2";
+//        SjtyDemo demo = new SjtyDemo();
+//        demo.getIds("/Users/yuqiuyuan/Downloads/log.txt");
+//        HashMap<String,String> p = new HashMap<>();
+//        p.put("123","2131231");
+//        System.out.println(p.put("123","xxxxx"));
+        System.out.println(1<<4);//
     }
 
     private Set<String> getIds(String file) throws IOException {
