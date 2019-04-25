@@ -52,7 +52,7 @@ public class SjtyEmailServiceImpl implements SjtyEmailService {
 
 
     public String sendEmailByTemplete(String to, String subject, String text, IContext context, String templateName) {
-        return sendEmail(to, subject, text, null,Types.TEMPLATE, null, context, templateName);
+        return sendEmail(to, subject, text, null, Types.TEMPLATE, null, context, templateName);
     }
 
 
@@ -77,15 +77,18 @@ public class SjtyEmailServiceImpl implements SjtyEmailService {
                 //  示例：<html><body><img src=\"cid:resourceName\" ></body></html>
                 FileSystemResource fileReource = new FileSystemResource(file);
                 helper.addInline(resourceName, fileReource);
-                helper.setText(text);
+                helper.setText(text,true);
                 //  附件类型
             } else if (Types.ATTACH.equals(type) && file != null) {
                 helper.addAttachment(resourceName, file);
                 helper.setText(text);
                 //  模版加载
             } else if (Types.TEMPLATE.equals(type)) {
-                helper.setText(templateEngine.process(templateName, context));
+                helper.setText(templateEngine.process(templateName, context),true);
+            } else {
+                helper.setText(text);
             }
+
             jms.send(message);
             return "发送成功～！";
         } catch (Exception e) {
